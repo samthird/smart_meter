@@ -12,6 +12,8 @@ You can get a PZEM-004T on Amazon for about £25 (Make sure you get the version 
 
 You will also need a Raspberry Pi with the associated accessories (SD card + power supply)
 
+This project is based on conde from this repository: ```https://gist.github.com/bandaangosta/134c9d84ae9bd317297e96dcc0b9c860```
+
 ## Installation
 
 ISOLATE THE MAINS SUPPLY BEFORE CONTINUING! I used a standard 13A 3 pin plug connected to a length of 1.5mm 3 core cable on one end and connected to the PZEM-004T at the other. Connect the Live and Neutral supply to the PZEM-004T. There is a diagram on the back of the case which shows the correct terminals.
