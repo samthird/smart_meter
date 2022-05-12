@@ -1,11 +1,3 @@
-# Reading PZEM-004t power sensor (new version v3.0) through Modbus-RTU protocol over TTL UART
-# Run as:
-# python3 pzem_004t.py
-
-# To install dependencies: 
-# pip install modbus-tk
-# pip install pyserial
-
 import serial
 import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
@@ -65,7 +57,7 @@ try:
         print('Power factor []: ', powerFactor)
         print('Alarm : ', alarm)
 
-        # Changing power alarm value to 100 W
+        # Change power alarm value to 100 W
         # master.execute(1, cst.WRITE_SINGLE_REGISTER, 1, output_value=100)
         time.sleep(5)
 
