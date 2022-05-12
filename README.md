@@ -12,7 +12,7 @@ You can get a PZEM-004T on Amazon for about £25 (Make sure you get the version 
 
 You will also need a Raspberry Pi with the associated accessories (SD card + power supply)
 
-This project is based on conde from this repository: ```https://gist.github.com/bandaangosta/134c9d84ae9bd317297e96dcc0b9c860```
+This project is based on code from this repository: ```https://gist.github.com/bandaangosta/134c9d84ae9bd317297e96dcc0b9c860```
 
 ## Installation
 
