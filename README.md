@@ -27,7 +27,9 @@ Clamp the CT clamp around either the live or neutral. DO NOT clamp it around bot
 ## Clone this repository
 
 ```cd ~/```
+
 ```git clone https://github.com/samthird/smart_meter.git```
+
 ```cd smart_meter```
 
 ## Install packages
@@ -63,6 +65,16 @@ Install mosquitto broker:
 Start mosquitto broker on boot:
 
 ```sudo systemctl enable mosquitto.service```
+
+### Import the flow
+
+You can either copy flows.json to the ```.node-red``` folder in the home directory, 
+
+```cd ~/smart_meter/```
+
+```cp flows.json ~/.node-red/```
+
+or import the flow directly in the node red web interface
 
 ## Check the USB port
 
