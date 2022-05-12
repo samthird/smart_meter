@@ -22,6 +22,12 @@ Connect the UART-USB cable to the PZEM-004T and plug the USB into the Raspberry 
 
 Clamp the CT clamp around either the live or neutral. DO NOT clamp it around both or they will cancel each other out and you will read 0A.
 
+## Clone this repository
+
+```cd ~/```
+```git clone https://github.com/samthird/smart_meter.git```
+```cd smart_meter```
+
 ## Install packages
 
 ```pip install modbus-tk```
@@ -61,6 +67,8 @@ Start mosquitto broker on boot:
 Run ```dmesg | grep tty``` to check which USB port the USB adapter is connected to. Change this in the python code if necessary.
 
 ## Set up the service to run the python script on boot
+
+Note: The following assumes you have cloned this repository into the home directory of a user called ```pi```. If that is not the case then you will need to modify pzem004t.sh and pzem004t.service accordingly.
 
 ```sudo cp pzem004t.service /lib/systemd/system/```
 
