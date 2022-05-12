@@ -1,0 +1,509 @@
+[
+    {
+        "id": "982b93f8d7f0dd8c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "595f01bc164317fd",
+        "type": "mqtt in",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "topic": "home/energy",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c8898601566dbdaa",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "32ecdc31581030a3",
+                "d4c358407ff53992",
+                "912ac7f5d3acbb41",
+                "2606ca7a287be5be",
+                "1160caa29e5e5934",
+                "6136fb462de86539",
+                "a8c8940aa33a6ac9",
+                "675cd98fcdf5049d"
+            ]
+        ]
+    },
+    {
+        "id": "2606ca7a287be5be",
+        "type": "debug",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "119c9bf6f818dabf",
+        "type": "ui_gauge",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "group": "82fcf0ee67cc8cea",
+        "order": 1,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Voltage",
+        "label": "V",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#ca3838",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "216",
+        "seg2": "250",
+        "className": "",
+        "x": 760,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4603b003a1135626",
+        "type": "ui_gauge",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "group": "82fcf0ee67cc8cea",
+        "order": 2,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Current",
+        "label": "A",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 760,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "0a95935589e88ce9",
+        "type": "ui_gauge",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "group": "82fcf0ee67cc8cea",
+        "order": 3,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Power",
+        "label": "KW",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 750,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a35f414db87a2529",
+        "type": "ui_chart",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "group": "82fcf0ee67cc8cea",
+        "order": 6,
+        "width": 21,
+        "height": 7,
+        "label": "Power",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "32ecdc31581030a3",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\nmsg.payload = obj.voltage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 220,
+        "wires": [
+            [
+                "119c9bf6f818dabf"
+            ]
+        ]
+    },
+    {
+        "id": "d4c358407ff53992",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\nmsg.payload = obj.current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 260,
+        "wires": [
+            [
+                "4603b003a1135626"
+            ]
+        ]
+    },
+    {
+        "id": "912ac7f5d3acbb41",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\nvar power = obj.power / 1000;\nmsg.payload = power.toFixed(3);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "0a95935589e88ce9",
+                "a35f414db87a2529",
+                "2fbe2d9baa18563d"
+            ]
+        ]
+    },
+    {
+        "id": "7d69ca586caf0c38",
+        "type": "ui_text",
+        "z": "982b93f8d7f0dd8c",
+        "group": "82fcf0ee67cc8cea",
+        "order": 5,
+        "width": 28,
+        "height": 2,
+        "name": "",
+        "label": "Consumption (KWh)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 800,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1160caa29e5e5934",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\nmsg.payload = obj.energy / 1000;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "7d69ca586caf0c38"
+            ]
+        ]
+    },
+    {
+        "id": "6136fb462de86539",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\nmsg.payload = obj.frequency;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 420,
+        "wires": [
+            [
+                "87bb6818893ce955"
+            ]
+        ]
+    },
+    {
+        "id": "87bb6818893ce955",
+        "type": "ui_gauge",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "group": "82fcf0ee67cc8cea",
+        "order": 4,
+        "width": 7,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Frequency",
+        "label": "Hz",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "0",
+        "seg2": "100",
+        "className": "",
+        "x": 770,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a61c1b39eb239c3a",
+        "type": "ui_toast",
+        "z": "982b93f8d7f0dd8c",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1050,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b76e3ba45019fae5",
+        "type": "switch",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 500,
+        "wires": [
+            [
+                "fb6e0fd6d9a75628"
+            ]
+        ]
+    },
+    {
+        "id": "a8c8940aa33a6ac9",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\nmsg.payload = obj.alarm;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "b76e3ba45019fae5"
+            ]
+        ]
+    },
+    {
+        "id": "fb6e0fd6d9a75628",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "msg.payload = \"ALARM!\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 500,
+        "wires": [
+            [
+                "a61c1b39eb239c3a"
+            ]
+        ]
+    },
+    {
+        "id": "675cd98fcdf5049d",
+        "type": "function",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "func": "var obj = JSON.parse(msg.payload);\nmsg.payload = obj.power_factor;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 460,
+        "wires": [
+            [
+                "c9eb4e7c020373f7"
+            ]
+        ]
+    },
+    {
+        "id": "c9eb4e7c020373f7",
+        "type": "ui_gauge",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "group": "82fcf0ee67cc8cea",
+        "order": 7,
+        "width": 7,
+        "height": 7,
+        "gtype": "gage",
+        "title": "Power Factor",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 770,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "2fbe2d9baa18563d",
+        "type": "debug",
+        "z": "982b93f8d7f0dd8c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c8898601566dbdaa",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "82fcf0ee67cc8cea",
+        "type": "ui_group",
+        "name": "Home",
+        "tab": "891ecc90f5ad1d01",
+        "order": 1,
+        "disp": true,
+        "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "891ecc90f5ad1d01",
+        "type": "ui_tab",
+        "name": "Energy",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
